@@ -22,10 +22,10 @@ describe ReverseMarkdown do
   end
 
   context "nested list with lots of whitespace" do
-    it { is_expected.to match /\n- item wa \n/ }
+    it { is_expected.to match /\n- item wa\n/ }
     it { is_expected.to match /\n- item wb \n/ }
-    it { is_expected.to match /\n  - item wbb \n/ }
-    it { is_expected.to match /\n  - item wbc \n/ }
+    it { is_expected.to match /\n  - item wbb\n/ }
+    it { is_expected.to match /\n  - item wbc\n/ }
   end
 
   context "lists containing links" do
@@ -62,6 +62,11 @@ describe ReverseMarkdown do
     it { is_expected.to match /\n    - bravo bravo alpha/ }
     it { is_expected.to match /\n- charlie\n/ }
     it { is_expected.to match /\n- delta\n/ }
+  end
+
+  context 'list contains newlines' do
+    it { is_expected.to match /\n- list with newlines entry\n/ }
+    it { is_expected.to match /\n- list with newlines entry 2\n/ }
   end
 
 end

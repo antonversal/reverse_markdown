@@ -5,7 +5,7 @@ module ReverseMarkdown
         content     = treat_children(node, state)
         indentation = indentation_from(state)
         prefix      = prefix_for(node)
-        "#{indentation}#{prefix}#{content.chomp}\n"
+        "#{indentation}#{prefix}#{content.strip}\n"
       end
 
       def prefix_for(node)
